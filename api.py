@@ -18,12 +18,10 @@ class API(object):
     def __init__(self, key):
         self.key = key
 
-    @staticmethod
-    def _parse_response(response):
+    def _parse_response(self, response):
         return json.loads(response)["response"]
 
-    @staticmethod
-    def _parse_error(response):
+    def _parse_error(self, response):
         return json.loads(response)['error']
 
     def get_users_ids(self, user_id):
@@ -80,4 +78,6 @@ class API(object):
 
         response = self._parse_response(response)
         return response[0]['id'], response[0]['name'], response[0]['members_count']
+
+
 

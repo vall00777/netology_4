@@ -13,13 +13,13 @@ def save(data):
             outfile.write(chunk)
 
 
-def main(id):
+def main(user_id):
     api = API(api_key)
 
-    if not id.isdigit():
-        id = api.get_id(id)
-    ids = api.get_users_ids(id)
-    groups_set = set(api.get_user_groups(id))
+    if not user_id.isdigit():
+        user_id = api.get_id(user_id)
+    ids = api.get_users_ids(user_id)
+    groups_set = set(api.get_user_groups(user_id))
 
     if not len(groups_set):
         print("У пользователя нет групп")
@@ -52,3 +52,4 @@ if __name__ == '__main__':
         main(user_id)
     except Exception as e:
         print(e)
+
